@@ -1,0 +1,11 @@
+{
+  "name": "redux-electron-windows",
+  "version": "0.0.1",
+  "description": "A redux middleware for arranging electron windows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mike@mikemonteith.com",
+  "license": "ISC"
+}
