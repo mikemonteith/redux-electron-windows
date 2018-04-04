@@ -9,7 +9,7 @@ npm install --save redux-electron-windows
 ```
 
 This usage example assumes your have already set up a redux-based electron app.
-For a complete example, see testapp/main.js
+For a complete example, see [testapp/main.js](./testapp/main.js)
 
 ```js
 const { INIT_WINDOWS, CLOSE_WINDOW, createWindowMiddleware } = require('redux-electron-windows')
