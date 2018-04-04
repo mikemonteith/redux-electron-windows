@@ -61,10 +61,5 @@ const store = createStore(
 app.on('ready', () => {
   // Dispatch an action to let the middleware know we can now create windows
   store.dispatch({type: INIT_WINDOWS})
-
-  setTimeout(() => {
-    // some time later, dispatch an action to create a new window
-    store.dispatch({type: 'NEW_WINDOW'})
-  }, 1000)
 })
 ```
