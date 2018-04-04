@@ -5,7 +5,7 @@ const { BrowserWindow } = require('electron')
 const CLOSE_WINDOW = '@@redux-electron-windows/CLOSE_WINDOW';
 const INIT_WINDOWS = '@@redux-electron-windows/INIT_WINDOWS';
 
-function createWindow(createWindowCallback, state, windowConfig) {
+function createWindow(createWindowCallback, state, windowConfig, dispatch) {
   let { id, closedCallback } = windowConfig;
 
   let win = new BrowserWindow();
@@ -25,7 +25,7 @@ function createWindow(createWindowCallback, state, windowConfig) {
     }
   })
 
-  createWindowCallback(win, state, id);
+  createWindowCallback(win, state, id, dispatch);
 
   return win;
 };
@@ -62,7 +62,8 @@ module.exports.createWindowMiddleware = (createWindowCallback, stateKey) => ({di
         dispatch({type: CLOSE_WINDOW, id});
       }
       const state = target[id]
-      let ref = createWindow(createWindowCallback, state, {id, closedCallback});
+      const windowConfig = {id, closedCallback}
+      let ref = createWindow(createWindowCallback, state, windowConfig, dispatch);
       // Add the new window reference to the internal registry
       registry[id] = ref;
     }

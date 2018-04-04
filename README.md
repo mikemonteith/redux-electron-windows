@@ -41,7 +41,7 @@ const reducer = combineReducers({
   }
 })
 
-const windowMiddleware = createWindowMiddleware((win, state) => {
+const windowMiddleware = createWindowMiddleware((win, state, id, dispatch) => {
   // This callback is called when a new window is created.
   // Put your window setup code here
   win.loadURL(state.url)

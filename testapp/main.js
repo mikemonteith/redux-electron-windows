@@ -32,7 +32,7 @@ const reducer = combineReducers({
   windows: myWindowReducer,
 })
 
-const windowMiddleware = createWindowMiddleware((win, state, id) => {
+const windowMiddleware = createWindowMiddleware((win, state, id, dispatch) => {
   win.loadURL(state.url)
   if(state.maximize === true) {
     win.maximize();
