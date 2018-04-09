@@ -37,7 +37,6 @@ function createWindow(createWindowCallback, state, windowConfig, dispatch) {
 const registry = {};
 
 module.exports.createWindowMiddleware = (createWindowCallback, stateKey) => ({dispatch, getState}) => next => action => {
-  console.log("DOING MIDDLEWARE", getState())
   stateKey = stateKey || 'windows'
 
   // Get the value that should be returned by this middleware
